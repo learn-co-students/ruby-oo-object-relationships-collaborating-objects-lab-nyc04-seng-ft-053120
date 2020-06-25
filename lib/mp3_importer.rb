@@ -1,4 +1,3 @@
-require 'pry'
 class MP3Importer
 
     attr_accessor :path
@@ -13,7 +12,9 @@ class MP3Importer
 
     def import 
 
-        self.files.collect{|file| file.split(" - ")}
+        mp3 = self.files.collect{|file| file.split(" - ")}
+        mp3.each{|index| index.pop}
+
         #Song.new_by_filename(some_filename)
     end
 end
