@@ -11,8 +11,11 @@ class Song
         @@all
     end
 
-    def self.new_by_filename(files)
-        Song.new_by_filename(files)
+    def self.new_by_filename(file_path)
+        mp3 = file_path.split(' - ')
+        song = Song.new(mp3[1])
+        song.artist = Artist.new(mp3[0])
+        song 
     end
 
     def artist_name=(name)
