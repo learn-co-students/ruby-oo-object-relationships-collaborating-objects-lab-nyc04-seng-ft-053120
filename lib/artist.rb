@@ -4,7 +4,6 @@ class Artist
 
     def initialize(name)
         @name = name 
-
         @@all << self 
     end
 
@@ -21,12 +20,8 @@ class Artist
     end
 
     def self.find_or_create_by_name(name)
-       
-        if self.all.find {|artist| artist.name == name}
-           self.all.find {|artist| artist.name == name}
-        else 
-           self.new(name) 
-        end
+        self.all.find {|artist| artist.name == name} ? self.all.find {|artist| artist.name == name} : Artist.new(name)
+  
     end
 
     def print_songs
