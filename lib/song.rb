@@ -18,12 +18,11 @@ def artist_name=(name)
     x.add_song(self)
 end
 
-def self.new_by_filename(file)
-    x = file.split(" - ")
- song = Song.new(x[1])
- Artist.new(x[0])
- song.artist = x[0]
-song
+def self.new_by_filename(filename)
+    artist, song = filename.split(" - ")
+    new_song = Song.new(song)
+    new_song.artist_name=(artist)
+    new_song
 end
 
 end
